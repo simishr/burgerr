@@ -2,14 +2,19 @@
 
 // DEPENDENCIES..
 var mysql = require("mysql");
+var connection;
 
-// CONNECTION INFORMATION..
-var connection = mysql.createConnection({
+if(process.env.JAWSDB_URL) {
+	connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+
+	connection = mysql.createConnection({
 	host: "localhost",
 	user: "root",
 	password: "password",
 	database: "burgerss_db"
-});
+	});
+};
 
 // CONNECTING TO THE DATABASE..
 connection.connect(function(err) {
