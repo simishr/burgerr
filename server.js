@@ -6,7 +6,7 @@ var exphbs = require("express-handlebars");
 
 // SETTING EXPRESS APP
 var app = express();
-var port=  3000;
+var PORT=  process.env.PORT || 3000;
 
 // Override with POST having ?_method=DELETE
 app.use(methodOverride("_method"));
@@ -32,7 +32,7 @@ app.use("/", routes);
 app.use("/:id", routes);
 app.use("/create", routes);
 
-app.listen(port);
+app.listen(PORT);
 
 
 
